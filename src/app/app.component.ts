@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   private getWeather(cityName: string) {
     this.weatherService.getWeatherData(cityName).subscribe({
       next: res => { this.weather = res; console.log(res); },
-      error: err => console.log('Limite de consultas alcanzada', err)
+      error: err => console.log('Limite de consultas alcanzada, pruebe en otro momento', err)
     })
   }
 }
