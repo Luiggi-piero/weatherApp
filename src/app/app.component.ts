@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'weatherApp';
   weather?: Weather;
   cityName = 'landon';
+  limitReached = false;
 
   constructor(private weatherService: WeatherService) { }
 
@@ -31,7 +32,10 @@ export class AppComponent implements OnInit {
   private getWeather(cityName: string) {
     this.weatherService.getWeatherData(cityName).subscribe({
       next: res => { this.weather = res; console.log(res); },
-      error: err => console.log('Limite de consultas alcanzada, pruebe en otro momento', err)
+      error: err => {
+        console.log('Límite de consultas alcanzada, pruebe en otro momento', err);
+        this.limitReached = true;
+      }
     })
   }
 }

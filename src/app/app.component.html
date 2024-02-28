@@ -1,3 +1,6 @@
+<div class="limit-reached" *ngIf="limitReached">
+  Límite de consultas alcanzado, pruebe en otro momento por favor
+</div>
 <div class="search">
   <form #form="ngForm" (ngSubmit)="onSubmit()">
     <input type="text" placeholder="Buscar ciudad" name="city" [(ngModel)]="cityName">
